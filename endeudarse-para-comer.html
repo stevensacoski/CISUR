@@ -66,6 +66,8 @@ img{max-width:100%}
   color:var(--on-dark); min-height:100svh; display:flex; flex-direction:column;
   justify-content:space-between; position:relative; overflow:hidden;
 }
+/* embebida en un iframe: la portada deja de usar alto de pantalla, para que no se estire y tape el resto */
+.embedded .hero{min-height:620px}
 .hero .wrap{padding-top:clamp(40px,10vh,90px); padding-bottom:40px}
 .kicker{
   font-family:"Montserrat"; font-weight:600; font-size:.82rem; letter-spacing:.14em;
@@ -517,6 +519,7 @@ footer ul{margin:0; padding-left:18px}
 
 <script>
 "use strict";
+if(window.self!==window.top){document.documentElement.classList.add('embedded');}
 const RM = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 /* theme */
